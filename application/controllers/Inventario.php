@@ -11,6 +11,7 @@ class Inventario extends CI_Controller{
         $this->load->model('Inventario_model');
             $this->load->model('Itensinventario_model');
                         $this->load->model('Entradaproduto_model');
+                        $this->load->model('Saidaproduto_model');
     }
 
     /*
@@ -50,11 +51,13 @@ class Inventario extends CI_Controller{
      */
 
      function novoinv(){
+       $tipomov =$this->input->post('tipomov');
           date_default_timezone_set('America/Sao_Paulo');
         $data=   date('d/m/Y');
        $params = array(
    'data' => $data,
    'descricao' => $this->input->post('descricao'),
+   'tipomov'=>$tipomov,
        );
 
        $inventario_id = $this->Inventario_model->add_inventario($params);
@@ -82,11 +85,20 @@ class Inventario extends CI_Controller{
 
                $null=$this->Itensinventario_model->add_iteminventario($itens);
 
+if($tipomov='ENTRADA'){
                $entrada = array(
                  'id_produto'=>$this->input->post('idproduto')[$i],
                    'qtde'=>$this->input->post('quantidade')[$i]
                );
           $null=$this->Entradaproduto_model->entrada($entrada);
+        }
+      if($tipomov='SAIDA'){
+          $saida = array(
+            'id_produto'=>$this->input->post('idproduto')[$i],
+              'qtde'=>$this->input->post('quantidade')[$i]
+          );
+            $null=$this->Saidaproduto_model->saida($saida);
+        }
      }
 
        echo json_encode(array('result'=> true));

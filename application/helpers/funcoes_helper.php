@@ -18,6 +18,27 @@ function subtotalpdv($idpedidopdv){
     return $totalitens;
 
 }
+
+function valordesconto($idpedidopdv){
+
+  $CI = get_instance();
+
+  $CI->load->model('Pedidopdv_model');
+  $desconto = $CI->Pedidopdv_model->descontovlr($idpedidopdv);
+
+  return $desconto;
+
+
+}
+function countitens($idpedidopdv){
+  $CI = get_instance();
+
+  $CI->load->model('Itenspedidopdv_model');
+  $itens = $CI->Itenspedidopdv_model->countitens($idpedidopdv);
+
+  return $itens;
+
+}
 function pagopdv($idpedidopdv){
 
   $CI = get_instance();

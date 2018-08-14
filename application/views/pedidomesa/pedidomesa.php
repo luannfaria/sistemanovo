@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="<?php echo site_url('resources/css/jquery-ui-1.10.4.min.css');?>">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 
 
       <link rel="stylesheet" href="<?php echo site_url('resources/css/stylepedidos.css')?>">
@@ -694,20 +694,7 @@ li.setAttribute('data-nome',name);
 li.setAttribute('data-venda',produto);
 li.setAttribute('data-id',idpro);
 
-//  var text = data[i].nomeproduto;
 
-//  nome.value= text;
-
-
-  //  venda.value=produto;
-  //  id.value =  idpro;
-
-//  span2.appendChild(produto);
-
-
-
-//  document.getElementById("produtolista").appendChild(li);
-//
 
 
 

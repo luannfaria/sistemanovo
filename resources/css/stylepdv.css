@@ -37,6 +37,33 @@ border-color:#fff;
 
 }
 
+.modal-contentdesconto{
+
+
+height:inherit;
+/* To center horizontally */
+margin: 0 auto;
+width: 65vh;
+height: 40vh;
+background: #fff;
+
+}
+
+.modal-contentdesconto .desconto{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 64vh;
+  height: 21vh;
+
+}
+
+.modal-contentdesconto .desconto span{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-start;
+
+}
 
 .modal-content{
 
@@ -44,7 +71,7 @@ border-color:#fff;
 height:inherit;
 /* To center horizontally */
 margin: 0 auto;
-width: 90vh;
+width: 100vh;
 height: 70vh;
 background: #fff;
 
@@ -54,14 +81,16 @@ background: #fff;
 display: grid;
 grid-template-columns: 1fr 1fr;
 height: 35vh;
-width: 100%;
+width: 70vh;
 
 
 
 
 }
+
+
 .modal-content .direita{
-background-color: #eee;
+
 position: relative;
 width: 100%;
 height: 20%;
@@ -74,21 +103,23 @@ list-style-type: none;
 padding: 0;
 margin: 2px;
 display: grid;
-grid-template-columns: 0.4fr 0.4fr 0.4fr;
+grid-template-columns: 1fr 1fr 1fr;
 
-grid-template-rows: 0.4fr 0.4fr 0.4fr;
+
 }
 
-.modal-content .esquerda .cedulas button{
+.modal-content .esquerda .cedulas .btn.btn-default.btn-lg{
 
-  color: #fff !important;
-  text-transform: uppercase;
-  background: #ed3330;
-  padding: 20px;
-  border-radius: 5px;
-  display: inline-block;
-  border: none;
-  margin: 3px;
+
+  background: #00a65a;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  color:white;
 
 }
 .input-number-group {
@@ -227,7 +258,7 @@ height: 8vh;
 }
 
 .modal-content .direita .totalvendamodal{
-
+background: #236c9c;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr;
@@ -239,7 +270,7 @@ margin:5px;
 
 .modal-content .direita .totalvendamodal span{
 
-background: #236c9c;
+
 flex: 1;
 display: flex;
 
@@ -249,6 +280,7 @@ justify-content: center;
 color: white;
 text-decoration: none;
 font-size: 30px;
+text-transform: uppercase;
 
 }
 
@@ -265,50 +297,51 @@ text-decoration: none;
 font-size: 20px;
 
 }
-/*.modal-content .esquerda .payment-method{
-width: 50%;
-list-style-type: none;
-padding: 0;
-margin: 5px;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-
-grid-template-rows: 1fr 1fr;
-
-
-}*/
-
-.modal-content .esquerda .payment-method .ulpag{
-list-style-type: none;
-padding: 0;
-margin: 0;
-display: grid;
-
-height: 10vh;
-grid-template-columns: 0fr 0fr;
-grid-template-rows: 1fr 1fr;
-
+.modal-content .esquerda .payment-method{
+  display: flex;
+  margin: 0;
+width: 45vh;
 
 
 }
-.modal-content .esquerda .lipag{
+
+.modal-content .esquerda .payment-method ul{
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+width: 45vh;
+
+  border-width: 2px 1px 2px;
+
+  border-style: solid;
 
 
-height: 8vh;
-background: #eeeeee;
-margin: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border-radius: 2px;
-cursor: pointer;
+  border-color:#fff;
+
+
 }
+.modal-content .esquerda .payment-method ul li{
+  height: 10vh;
+  width: 18vh;
+  background: #00a65a;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  color:white;
 
-
+}
+.modal-content .esquerda .payment-method ul :hover {
+background: #008d4c;
+}
 
 .label{
-color: #333;
+
   font-size: 20px;
 cursor: pointer;
 }
@@ -339,7 +372,7 @@ border-radius: 2px;
 background-color: #d5d5d5;
 }
 .register .right {
-background-color: #2980b9;
+background-color: #236c9c;
 position: relative;
 z-index: 10px;
 }
@@ -370,10 +403,13 @@ height: 10vh;
 list-style-type: none;
 }
 .register .right .teste2{
-display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+height: 16vh;
+border-width: 0px 0px 2px;
 background: #2980b9;
-height: 15vh;
-margin-top: 8px;
+border-style: solid;
+border-color: white;
 
 }
 .register .right .teste2 span{
@@ -381,13 +417,15 @@ margin-top: 8px;
 background: #2980b9;
 flex: 1;
 display: flex;
-
+margin-top: 15px;
 align-items: center;
 justify-content: center;
-height: 10vh;
+height: 6vh;
 color: white;
 text-decoration: none;
 font-size: 20px;
+
+
 }
 .register .right .categories ul li {
 
@@ -415,31 +453,34 @@ text-decoration:none;
 background: #2980b9;
 }
 .register .right .menu-items {
-height: 57vh;
+  display: grid;
+
+  grid-template-row: 1fr 1fr;
+height: 61vh;
 background: #fff;
 }
-.register .right .menu-items ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-height: 57vh;
-overflow-y: scroll;
-cursor: pointer;
-}
-.register .right .menu-items ul li {
-height: 10vh;
-background: #2980b9;
-margin: 5px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border-radius: 2px;
-color: #fff;
+
+.register .right .menu-items span {
+display: inline-block;
+  flex: 1;
+  margin: 6px;
+
+  align-items: center;
+  justify-content: center;
+  height: 6vh;
+  color: #000;
 
 }
+.register .right .menu-items .cliente{
+
+  font-weight: bold;
+  font-size: 23px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .register .right .totalizador{
   display: grid;
   grid-template-columns: 1fr 1fr;

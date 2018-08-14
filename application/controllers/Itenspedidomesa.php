@@ -60,7 +60,7 @@ $print = "itautec";
      }
 
 
-                //    $this->load->helper("printer");
+                //   $this->load->helper("printer");
                 //    teste();
 echo json_encode(array('result'=> true));
      }

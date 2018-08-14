@@ -65,10 +65,28 @@ class Pedidopdv_model extends CI_Model
     /*
      * function to update pedidopdv
      */
-    function update_pedidopdv($idpedidopdv,$params)
+     function descontovlr($idpedidopdv){
+
+       $this->db->select('*');
+      $this->db->from('pedidopdv');
+      $this->db->where('idpedidopdv', $idpedidopdv);
+
+      $query = $this->db->get();
+
+      if ($query->num_rows() == 1){
+
+
+     $row = $query->row();
+
+
+     return $row->desconto;
+}
+     }
+    function desconto($idpedidopdv,$params)
     {
+        $this->db->set('desconto',$params);
         $this->db->where('idpedidopdv',$idpedidopdv);
-        return $this->db->update('pedidopdv',$params);
+        return $this->db->update('pedidopdv');
     }
 
     /*

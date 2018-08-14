@@ -62,7 +62,7 @@ class Pagamentopedidopdv extends CI_Controller{
        $totalpago = $this->input->post('valorpago');
        $vlrpgto = $this->input->post('vlrpgto');
        $totalpedido = $this->input->post('subtotalpagamento');
-
+        $restante =   $this->input->post('restante');
        if($vlrpgto>=($totalpedido-$totalpago)){
 
          $vlr = ($totalpedido-$totalpago);
@@ -91,10 +91,11 @@ class Pagamentopedidopdv extends CI_Controller{
  );
 
    $this->Caixa_model->add_caixa($caixa);
-   echo json_encode(array('result'=> true));
+       echo json_encode(array('result'=> true));
+
  }
 
- else{
+  else{
 
 
              $params = array(
@@ -107,8 +108,8 @@ class Pagamentopedidopdv extends CI_Controller{
  			//	'usuario_id' => $this->input->post('usuario_id'),
  				'formapgto' => $this->input->post('formapgtoselecionada')
        );
-          $pagamentopedidopdv_id = $this->Pagamanetopedidopdv_model->add_pagamentopedidopdv($params);
-           echo json_encode(array('result'=> true));
+          $pagamentopedidopdv_id = $this->Pagamentopedidopdv_model->add_pagamentopedidopdv($params);
+
 
            $caixa = array(
                  'data'=>$this->input->post('data'),
@@ -119,7 +120,10 @@ class Pagamentopedidopdv extends CI_Controller{
 
            );
 
+
              $this->Caixa_model->add_caixa($caixa);
+                echo json_encode(array('result'=> false));
+
  }
 
 

@@ -70,7 +70,7 @@ class Produto_model extends CI_Model
      		$query = $this->db->get('produto');
      		if($query->num_rows() > 0){
      				foreach ($query->result_array() as $row){
-     						$row_set[] = array('label'=>$row['nomeproduto'].' | Preço: R$ '.$row['vendaproduto'].'','produto_id'=>$row['produto_id'],'nomeproduto'=>$row['nomeproduto'],'vendaproduto'=>$row['vendaproduto']);
+     						$row_set[] = array('label'=>$row['nomeproduto'].' | Preço: R$ '.$row['vendaproduto'].'','codbarra'=>$row['codbarra'],'produto_id'=>$row['produto_id'],'nomeproduto'=>$row['nomeproduto'],'vendaproduto'=>$row['vendaproduto']);
      				}
      				echo json_encode($row_set);
      		}
@@ -86,6 +86,20 @@ class Produto_model extends CI_Model
       $query = $this->db->query($sql);
       $array = $query->result_array();
       return $array;
+    }
+
+    function gerarcodbarra(){
+      $sql = "select * from produto where codbarra is null";
+      $query = $this->db->query($sql);
+      $array = $query->result_array();
+
+      if($query->num_rows() > 0){
+          foreach ($query->result_array() as $row){
+            $update = "update produto set codbarra = LPAD(".$row['produto_id'].",13,0) where produto_id=".$row['produto_id']."";
+            $this->db->query($update);
+          }
+        }
+
     }
 
     /*

@@ -48,6 +48,7 @@ class Itenspedidopdv extends CI_Controller{
 				'quantidade' => $this->input->post('quantidade'),
         'codbarra' => $this->input->post('codbarra'),
 				'valor' => $this->input->post('valor'),
+                'totalitem' => $this->input->post('totalitem'),
 				'hora' => $hora,
 				'data' => $data,
 				'usuario_id' => $this->input->post('usuario_id')

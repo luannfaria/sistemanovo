@@ -104,29 +104,29 @@
 						</div>
 					</div>
 
-          <div class="col-md-2">
+      <!--    <div class="col-md-2">
             <label for="unidade" class="control-label"><span class="text-danger">*</span>PERMITIR ADICIONAIS?</label>
             <div class="form-group">
               <select name="permitiradd" class="form-control">
                 <option value="">SELECIONE</option>
                 <?php
-                $adicionais = array(
-                  '0'=>'NÃO',
-                  '1'=>'SIM',
+          //      $adicionais = array(
+        //          '0'=>'NÃO',
+        //          '1'=>'SIM',
 
-                );
+              //  );
 
-                foreach($adicionais as $value => $display_text)
+    //            foreach($adicionais as $value => $display_text)
                 {
-                  $selected = ($value == $this->input->post('permitiradd')) ? ' selected="selected"' : "";
-
-                  echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
+      //            $selected = ($value == $this->input->post('permitiradd')) ? ' selected="selected"' : "";
+//
+//                  echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
                 }
                 ?>
               </select>
 
             </div>
-          </div>
+          </div>!-->
 
           <div class="col-md-2">
             <label for="impressora_id" class="control-label">Impressora</label>

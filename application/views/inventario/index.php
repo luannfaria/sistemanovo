@@ -8,21 +8,30 @@
                 </div>
             </div>
             <div class="box-body">
+
+              <?php
+
+    $dir = shell_exec('wmic DISKDRIVE GET SerialNumber 2>&1');
+  echo $dir;
+     // get rid of the evidence :-)
+    ?>
                 <table class="table table-striped">
                     <tr>
 
 						<th>Data</th>
 						<th>Descrição</th>
+            	<th>Movimentação</th>
 						<th>Ações</th>
                     </tr>
                     <?php foreach($inventarios as $i){ ?>
                     <tr>
-						
+
 						<td><?php echo $i['data']; ?></td>
 						<td><?php echo $i['descricao']; ?></td>
+            	<td><?php echo $i['tipomov']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('inventario/edit/'.$i['idinventario']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('inventario/remove/'.$i['idinventario']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                    <!--        <a href="<?php echo site_url('inventario/edit/'.$i['idinventario']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>!-->
+
                         </td>
                     </tr>
                     <?php } ?>

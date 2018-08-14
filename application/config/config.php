@@ -115,6 +115,8 @@ $config['enable_hooks'] = FALSE;
 |
 */
 $config['subclass_prefix'] = 'MY_';
+$config['composer_autoload'] = TRUE;
+$config['composer_autoload'] = 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -124,7 +126,7 @@ $config['subclass_prefix'] = 'MY_';
 | Enabling this setting will tell CodeIgniter to look for a Composer
 | package auto-loader script in application/vendor/autoload.php.
 |
-|	$config['composer_autoload'] = TRUE;
+|
 |
 | Or if you have your vendor/ directory located somewhere else, you
 | can opt to set a specific path as well:
@@ -136,7 +138,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -367,13 +369,14 @@ $config['encryption_key'] = '';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_driver'] = 'database';
+$config['sess_cookie_name'] = 'app_session';
+$config['sess_expiration'] = 0;
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
+
 
 /*
 |--------------------------------------------------------------------------

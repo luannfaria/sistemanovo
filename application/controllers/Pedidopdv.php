@@ -35,6 +35,18 @@ class Pedidopdv extends CI_Controller{
 
     }
 
+    public function desconto(){
+
+        $pedidopdvid =  $this->input->post('formdescontoid');
+        $desconto =  $this->input->post('descontovalor');
+
+$null= $this->Pedidopdv_model->desconto($pedidopdvid,$desconto);
+
+  echo json_encode(array('result'=> true));
+
+
+    }
+
     public function editapdv($pedido){
 
       $data['pdv']= $this->Pedidopdv_model->getvenda($pedido);

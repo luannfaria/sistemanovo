@@ -4,8 +4,35 @@
             <div class="box-header">
                 <h3 class="box-title">PRODUTOS</h3>
             	<div class="box-tools">
+
+                  <a href="<?php echo site_url('produto/gerarean'); ?>" class="btn btn-success">IMPRIMIR COD DE BARRAS</a>
                     <a href="<?php echo site_url('produto/add'); ?>" class="btn btn-success">NOVO PRODUTO</a>
                 </div>
+
+
+                <div class="modal fade" id="modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Imprimir</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="<?php echo site_url('produto/generatebarcode'); ?>" class="btn btn-success">NOVO PRODUTO</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!-- /.modal -->
+
             </div>
             <div class="box-body">
                 <table class="table table-striped">
@@ -42,3 +69,13 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/jsbarcode/3.3.20/JsBarcode.all.min.js"></script>
+
+
+<script>
+
+JsBarcode("#ean-13", "1234567890128", {format: "ean13"});
+
+</script>

@@ -1,80 +1,177 @@
-<div class="row">
-    <div class="col-md-12">
-      	<div class="box box-info">
-            <div class="box-header with-border">
-              	<h3 class="box-title">Pedidodelivery Add</h3>
-            </div>
-            <?php echo form_open('pedidodelivery/add'); ?>
-          	<div class="box-body">
-          		<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="status" class="control-label">Status</label>
-						<div class="form-group">
-							<input type="text" name="status" value="<?php echo $this->input->post('status'); ?>" class="form-control" id="status" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="timestamp" class="control-label">Timestamp</label>
-						<div class="form-group">
-							<input type="text" name="timestamp" value="<?php echo $this->input->post('timestamp'); ?>" class="has-datetimepicker form-control" id="timestamp" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="troco" class="control-label">Troco</label>
-						<div class="form-group">
-							<input type="text" name="troco" value="<?php echo $this->input->post('troco'); ?>" class="form-control" id="troco" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="identregador" class="control-label">Identregador</label>
-						<div class="form-group">
-							<input type="text" name="identregador" value="<?php echo $this->input->post('identregador'); ?>" class="form-control" id="identregador" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="idtaxaentrega" class="control-label">Idtaxaentrega</label>
-						<div class="form-group">
-							<input type="text" name="idtaxaentrega" value="<?php echo $this->input->post('idtaxaentrega'); ?>" class="form-control" id="idtaxaentrega" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="idclientes" class="control-label">Idclientes</label>
-						<div class="form-group">
-							<input type="text" name="idclientes" value="<?php echo $this->input->post('idclientes'); ?>" class="form-control" id="idclientes" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="data" class="control-label">Data</label>
-						<div class="form-group">
-							<input type="text" name="data" value="<?php echo $this->input->post('data'); ?>" class="form-control" id="data" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="subtotal" class="control-label">Subtotal</label>
-						<div class="form-group">
-							<input type="text" name="subtotal" value="<?php echo $this->input->post('subtotal'); ?>" class="form-control" id="subtotal" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="taxaentrega" class="control-label">Taxaentrega</label>
-						<div class="form-group">
-							<input type="text" name="taxaentrega" value="<?php echo $this->input->post('taxaentrega'); ?>" class="form-control" id="taxaentrega" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="desconto" class="control-label">Desconto</label>
-						<div class="form-group">
-							<input type="text" name="desconto" value="<?php echo $this->input->post('desconto'); ?>" class="form-control" id="desconto" />
-						</div>
-					</div>
-				</div>
-			</div>
-          	<div class="box-footer">
-            	<button type="submit" class="btn btn-success">
-            		<i class="fa fa-check"></i> Save
-            	</button>
-          	</div>
-            <?php echo form_close(); ?>
-      	</div>
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<nav>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css');?>">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css');?>">
+
+  <link rel="stylesheet" href="<?php echo site_url('resources/css/jquery-ui-1.10.4.min.css');?>">
+
+
+<link rel="stylesheet" href="<?php echo site_url('resources/css/styledelivery.css')?>">
+  <ul>
+    <li><a href="#">Sales</a></li>
+    <li><a href="#">+</a></li>
+    <li><a href="#">Tunnel</a></li>
+    <li><a href="#">Surf</a></li>
+    <li><a href="#">Parties</a></li>
+  </ul>
+
+  <div class="search">
+    <input type="Search" placeholder="Search..." />
+  </div>
+</nav>
+
+<div class="sellables-container">
+  <div class="sellables">
+    <div class="cliente">
     </div>
+    <div id="categories" class="categories">
+
+      <?php foreach($categoria as $cat) {?>
+    <a  data-idcat=<?php echo $cat['idcategoria']?> class="category"><?php echo $cat['nomecategoria']?></a>
+    <?php } ?>
+
+    </div>
+
+    <div class="item-group-wrapper">
+      <div id="produtolista" class="item-group">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="register-wrapper">
+    <div class="customer">
+      <input type="text" placeholder="John Doe" />
+    </div>
+
+    <div class="register">
+      <div class="products">
+        <div class="product-bar selected">
+          <span>Cookies</span>
+          <span>$5.00</span>
+        </div>
+
+        <div class="product-bar">
+          <span>Cookies</span>
+          <span>$5.00</span>
+        </div>
+
+        <div class="product-bar">
+          <span>Cookies</span>
+          <span>$5.00</span>
+        </div>
+      </div>
+
+      <div class="pay-button">
+        <a href="#">Pay $50.00</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<script  src="<?php echo site_url('resources/js/index.js')?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.js');?>"></script>
+<script src="<?php echo site_url('resources/js/jquery-ui-1.10.4.min.js');?>"></script>
+<script src="<?php echo site_url('resources/js/bootstrap.min.js');?>"></script>
+
+
+<script>
+
+
+$('#categories a').click(function(){
+
+
+   $('#produtolista').empty();
+    var $this = $(this);
+    var idcat = $this.attr("data-idcat");
+
+    $.ajax({
+    type: "POST",
+    url:"<?php echo base_url();?>produto/buscaitemporcategoria",
+    data:'idcategoria='+idcat,
+    dataType:'json',
+    success:function(data)
+    {
+
+
+
+
+
+
+      var len = data.length;
+
+
+
+      if(len>0){
+      for(var i=0; i<len; i++){
+
+        var span = document.createElement("span");
+         var span2 = document.createElement("span");
+         span2.className =("preco");
+          span.className =("nomeprod");
+
+         var produto = data[i].vendaproduto;
+         var idpro = data[i].produto_id;
+  var name = data[i].nomeproduto;
+
+        var li = document.createElement('a');
+
+         li.className =("item");
+        document.getElementById('produtolista').appendChild(li);
+  //li.setAttribute('data-nome',name);
+        li.appendChild(span);
+       li.appendChild(span2);
+
+        	//		li.innerHTML += name;
+         span.innerHTML+=name +'<br/>'+'R$ '+produto;
+  
+
+    //    var li = document.createElement("li");
+    //  var ul = document.createElement("ul");
+        var nome =document.createAttribute("data-nome");
+        var venda =document.createAttribute("data-venda");
+        var id =document.createAttribute("data-id");
+  li.setAttribute('data-nome',name);
+  li.setAttribute('data-venda',produto);
+  li.setAttribute('data-id',idpro);
+
+  //  var text = data[i].nomeproduto;
+
+  //  nome.value= text;
+
+
+    //  venda.value=produto;
+    //  id.value =  idpro;
+
+  //  span2.appendChild(produto);
+
+
+
+  //  document.getElementById("produtolista").appendChild(li);
+  //
+
+
+
+      }
+
+
+
+
+    }
+  }
+
+    });
+    return false;
+
+})
+</script>
+</html>

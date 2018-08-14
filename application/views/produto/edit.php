@@ -98,29 +98,7 @@
 							<input type="text" name="estoquemax" value="<?php echo ($this->input->post('estoquemax') ? $this->input->post('estoquemax') : $produto['estoquemax']); ?>" class="form-control" id="estoquemax" />
 						</div>
 					</div>
-          <div class="col-md-2">
-            <label for="unidade" class="control-label"><span class="text-danger">*</span>PERMITIR ADICIONAIS?</label>
-            <div class="form-group">
-              <select name="permitiradd" class="form-control">
-                <option value="">SELECIONE</option>
-                <?php
-                $adicionais = array(
-                  '0'=>'NÃO',
-                  '1'=>'SIM',
-
-                );
-
-                foreach($adicionais as $value => $display_text)
-                {
-                  $selected = ($value == $produto['permitiradd']) ? ' selected="selected"' : "";
-
-                  echo '<option value="'.$value.'" '.$selected.'>'.$display_text.'</option>';
-                }
-                ?>
-              </select>
-
-            </div>
-          </div>
+  
           <div class="col-md-2">
 						<label for="ativo" class="control-label"><span class="text-danger">*</span>Ativo</label>
 						<div class="form-group">

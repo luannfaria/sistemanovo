@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PROFIT sistemas</title>
+        <title>PROFIT SISTEMAS</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css');?>">
+        <link rel="stylesheet" href="https://bootswatch.com/3/readable/bootstrap.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css');?>">
 
@@ -32,7 +32,7 @@
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">PROFIT 1.0</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg">PROFIT 1.0</span>
+                    <span class="logo-lg"></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -48,30 +48,10 @@
                         <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
+
+                                  <a href="<?php echo site_url('Dashboard/sair')?>">SAIR <i class="fa fa-sign-out"></i> </a>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <!-- User image -->
-                                <!--    <li class="user-header">
-                                        <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
 
-                                    <p>
-                                        Alexander Pierce - Web Developer
-
-                                    </p>
-                                  </li>!-->
-                                    <!-- Menu Footer-->
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                        </div>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -84,18 +64,21 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
+                            <img src="<?php echo site_url('resources/img/user2-160x160.png');?>" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p>Alexander Pierce</p>
+                            <p>PROFIT 1.0 </p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+
+
                         </div>
                     </div>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="<?php echo site_url();?>">
+                            <a href="">
                                 <i class="fa fa-dashboard"></i> <span>INICIO</span>
+                                <?php echo $empresa['datavencimentolicenca']; ?>
                             </a>
                         </li>
 

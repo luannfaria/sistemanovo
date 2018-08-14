@@ -35,13 +35,34 @@ class Itenspedidopdv_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+    function countitens($idpedidopdv)
+    {
+
+             $sql = "SELECT sum(quantidade) as itens from itenspedidopdv where idpedidopdv='$idpedidopdv'";
+             $query = $this->db->query($sql);
+
+             if ($query->num_rows() == 1)
+             {
+             //Use row() to get a single result
+             $row = $query->row();
+
+             //$row will now have if you printed the contents:
+             //print_r( $row );
+             //stdClass Object ( [email] => example@gmail.com )
+
+             //Pass $query->email directly to reset_password
+
+             return $row->itens;
+           }
+    }
+
     /*
      * Get all itenspedidopdv
      */
 
      function subtotalpdv($idpedidopdv){
 
-       $sql = "SELECT sum(valor) as subtotal from itenspedidopdv where idpedidopdv='$idpedidopdv'";
+       $sql = "SELECT sum(totalitem) as subtotal from itenspedidopdv where idpedidopdv='$idpedidopdv'";
        $query = $this->db->query($sql);
 
        if ($query->num_rows() == 1)

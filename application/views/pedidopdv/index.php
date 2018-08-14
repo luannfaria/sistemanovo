@@ -63,7 +63,7 @@
         <tbody>
           <tr>
             <td>Cod barras</td>
-            <td>Item</td>
+            <td>Descrição</td>
             <td>Qtdd</td>
             <td>Total</td>
             <td>Ações</td>
@@ -91,14 +91,14 @@
           <i class="fas fa-money-bill-alt fa-2x fa-fw" data-fa-transform="up-2"></i> Receber
 
         </li>
-        <li>
-          <i class="fas fa-users fa-2x fa-fw" data-fa-transform="up-2"></i> Cliente
+        <li  href="#desconto" data-toggle="modal">
+          <i class="fas fa-cart-arrow-down fa-2x fa-fw" data-fa-transform="up-2"></i> Desconto
         </li>
         <li>
           <i class="fas fa-print fa-2x fa-fw" data-fa-transform="up-2"></i> Imprimir
         </li>
         <li  onclick="excluirpedido();" id="excluirpedido"  data-idpedido="">
-          <i class="fas fa-trash fa-2x fa-fw"  ></i> Cancelar venda
+          <i class="fas fa-times fa-2x fa-fw"  ></i> Cancelar venda
         </li>
 
       </ul>
@@ -110,18 +110,47 @@
   <div class="right">
 
     <div class="teste2">
+      <span>
+      <H3 style="text-align: center"><?php echo date('d/m/Y'); ?></H3>
+      </span>
+      <span>
 
-      <span><STRONG>VENDA:<?php echo $pdv->idpedidopdv?> </STRONG></span>
+<h3 style="text-align: center"> <div id="real-clock"></DIV></h3>
 
 
+        </span>
 
+
+<span><h3 style="text-align: center">Nº: <?php echo $pdv->idpedidopdv; ?> </h3>
+</span>
     </div>
 
     <div id="todos" class="menu-items">
-      <ul id="produtolista">
+
+          <span>
 
 
-      </ul>
+
+<h3> Cliente</h3>
+            <input type="text" class="form-control required" name="cliente" id="cliente" placeholder="Digite o nome do cliente"  onfocus="this.value=''" required/>
+          </span>
+          <span>
+<div class="cliente" id="listnome"></div>
+ <div class="cliente" id="listfixo"></div>
+                        <input type="hidden" class="form-control" name="nomecliente" id="nomecliente">
+                          <input type="hidden" class="form-control" name="telfixo" id="telfixo">
+                            <input type="hidden" class="form-control" name="celular" id="celular">
+                              <input type="hidden" class="form-control" name="rua" id="rua">
+                                <input type="hidden" class="form-control" name="numero" id="numero">
+                                <input type="hidden" class="form-control" name="idclientes" id="idclientes">
+          </span>
+          <span> </span>
+          <span>
+
+
+
+          </span>
+          <span></span>
     </div>
     <div id="total"class="totalizador">
 
@@ -129,13 +158,16 @@
           $idpedido = $pdv->idpedidopdv;
        $this->load->helper("funcoes");
        $troco =0;
+       $desconto=0;
       $total = subtotalpdv($idpedido);
   //  $valortaxa = valortaxa($idpedido);
   $valorpago = pagopdv($idpedido);
+  $itens = countitens($idpedido);
+  $desconto = valordesconto($idpedido);
       ?>
-      <span><strong>Pago R$ <?php echo  number_format((float)$valorpago,2,'.','') ?></strong></span>
-        <span><strong>Desconto </strong></span>
-<span><strong>Desconto </strong></span>
+      <span><strong>Itens <?php echo $itens ?> </strong></span>
+        <span><strong>Pago R$ <?php echo  number_format((float)$valorpago,2,'.','') ?> </strong></span>
+<span><strong>Desconto R$  <?php echo  number_format((float)$desconto,2,'.','') ?> </strong></span>
       <span><strong>Total R$ <?php echo  number_format((float)$total,2,'.','') ?></strong></span>
     </div>
     <form id="form_insert" action="" method="post">
@@ -154,6 +186,43 @@
 
 </div>
 
+<div class="modal fade" id="desconto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-contentdesconto">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">DESCONTO</h4>
+        </div>
+
+        <div class="desconto">
+
+          <span>
+
+        <div class="col-lg-8">
+            <h3>Porcent. %</h3>
+          <input type="text" class="form-control  input-lg"   name="descontoporcentagem" id="descontoporcentagem"/>
+    </div>
+  </span>
+  <span>
+
+    <div class="col-lg-8">
+    <h3>Valor R$</h3>
+    <form id="formdesconto" action="" method="post">
+<input type="hidden" name="formdescontoid" value="<?php echo $pdv->idpedidopdv ?>">
+<input type="hidden" class="form-control  input-lg"  name="formdescontovalor" id="formdescontovalor" >
+      <input type="text" class="form-control  input-lg"  name="descontovalor" id="descontovalor" value="">
+</div>
+</span>
+        </div>
+  <div class="modal-footer">
+
+  <button type="submit" onclick="desconto" class="btn btn-success btn-lg">CONFIRMAR </button>
+
+</form>
+  </div>
+      </div>
+    </div>
+  </div>
 <div class="modal fade" id="receber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -165,48 +234,48 @@
 
                       <div class="esquerda">
                         <div class="payment-method">
-                        <ul id="ulpag" class="ulpag">
+                        <ul id="ulpag">
                <li class="lipag" data-pgto="dinheiro">
 
-                 <input name="pag" type="radio" class="radio hidden" value="dinheiro" id="dinheiro">
+                 <input name="pag" type="radio" class="radio hidden" value="DINHEIRO" id="dinheiro">
 <label class="label" for="dinheiro"> DINHEIRO</label>
                </li>
 
                <li class="lipag"  data-pgto="credito">
 
-                 <input name="pag" type="radio"  class="radio hidden"value="credito" id="credito">
-                   <label class="label" for="credito">CARTÃO DE CRÉDITO</label>
+                 <input name="pag" type="radio"  class="radio hidden"value="CREDITO" id="credito">
+                   <label class="label" for="credito">CRÉDITO</label>
                </li>
 
                <li class="lipag" data-pgto="debito">
 
-                 <input name="pag" type="radio"  class="radio hidden" value="debito" id="debito">
-              <label class="label" for="debito">CARTÃO DE DEBITO</label>
+                 <input name="pag" type="radio"  class="radio hidden" value="DEBITO" id="debito">
+              <label class="label" for="debito">DEBITO</label>
                </li>
                <li class="lipag"  data-pgto="cheque">
 
-                 <input name="pag" type="radio"  class="radio hidden" value="cheque" id="cheque">
-           <label class="label"for="cheque">   CHEQUE</label>
+                 <input name="pag" type="radio"  class="radio hidden" value="CHEQUE" id="cheque">
+           <label class="label"for="cheque">  CHEQUE</label>
                </li>
 
                <li class="lipag"  data-pgto="fiado">
 
                  <input name="pag" type="radio"  class="radio hidden"value="fiado" id="fiado">
-            <label class="label" for="fiado">   PRAZO</label>
+            <label class="label" for="fiado">  PRAZO</label>
           </li>
              </ul>
 
 
 </div>
 <div id="cedulas" class="cedulas" style="visibility:hidden;">
-                    <span id="frm"></span>
-                <button value="2" onclick="dois(this);"><strong>R$ 2.00</strong> </button>
+
+                <button class="btn btn-default btn-lg" value="2" onclick="dois(this);"><strong>R$ 2.00</strong> </button>
                 <button  class="btn btn-default btn-lg" value="5"  onclick="cinco(this)"><strong>R$ 5.00 </strong></button>
                 <button  class="btn btn-default btn-lg" value="10"  onclick="dez(this)"><strong>R$ 10.00 </strong></button>
                 <button  class="btn btn-default btn-lg" value="20"  onclick="vinte(this)"><strong>R$ 20.00 </strong></button>
                       <button class="btn btn-default btn-lg" value="50"  onclick="cinquenta(this)"><strong>R$ 50.00</strong> </button>
                       <button  class="btn btn-default btn-lg" value="100"  onclick="cem(this)"><strong>R$ 100.00 </strong></button>
-                        <button  class="btn btn-default btn-lg" value="0"  onclick="restante(this)"><strong>RESTANTE<br>R$ <?php echo $total - number_format((float)$valorpago,2,'.',''); ?></strong></button>
+                        <button  class="btn btn-default btn-lg" value="0"  onclick="restante(this)"><strong>RESTANTE<br>R$ <?php echo $total - $desconto - number_format((float)$valorpago,2,'.',''); ?></strong></button>
                         <span>
 </div>
 
@@ -215,12 +284,12 @@
 
 
 <div class="totalvendamodal">
-                          <span>Total </span>
+                          <span>Pago em: </span>
                           <span>Recebido </span>
                           <span>Troco </span>
-<span id="totalvenda">R$ <?PHP ECHO $total ?></span>
- <span id="totalrecebido">R$ </span>
- <span id="troco">R$ </span>
+<span id="frm"></span>
+ <span id="totalrecebido">R$ 0.00</span>
+ <span id="troco">R$ 0.00</span>
                       </div>
 
 
@@ -233,8 +302,8 @@
                                                         <input type="hidden" name="descricao" value="PAGAMENTO VENDA PDV Nº <?php echo $pdv->idpedidopdv ?>">
                                                         <input type="hidden"  name="vlrpgto" value="" id="vlrpgto">
                                                         <input type="hidden" name="idpedidopagamento" value="<?php echo $pdv->idpedidopdv?>" id="idpedidopagamento">
-                                                        <input type="hidden" name="subtotalpagamento" value="<?php echo $total ?>" id="subtotalpagamento">
-                                                          <input type="hidden" id="restante" name="restante" value="<?php echo $total - number_format((float)$valorpago,2,'.',''); ?>">
+                                                        <input type="hidden" name="subtotalpagamento" value="<?php echo $total- $desconto  ?>" id="subtotalpagamento">
+                                                          <input type="hidden" id="restante" name="restante" value="<?php echo $total - $desconto - number_format((float)$valorpago,2,'.',''); ?>">
                                                         <input type="hidden" value="" name="formapgtoselecionada" id="formapgtoselecionada">
                                                           <input type="hidden" value="<?php   date_default_timezone_set('America/Sao_Paulo');
                                                             echo date('d/m/Y');?>" name="data" id="data">
@@ -254,10 +323,16 @@
 <script src="<?php echo site_url('resources/js/jquery.js');?>"></script>
 <script src="<?php echo site_url('resources/js/jquery-ui-1.10.4.min.js');?>"></script>
   <script src="<?php echo site_url('resources/js/bootstrap.min.js');?>"></script>
-
+<script src="<?php echo site_url('resources/js/maskmoney.js');?>"></script>
 
 <script>
 
+var clock = document.getElementById('real-clock');
+
+
+  setInterval(function () {
+      clock.innerHTML = ((new Date).toLocaleString().substr(11, 8));
+  }, 1000);
 
 
 
@@ -284,10 +359,10 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 
 
  vlrpg.value =valor.toFixed(2);;
- document.getElementById("troco").innerHTML = tr;
+ document.getElementById("troco").innerHTML = 'R$ '+tr;
 
 
-  document.getElementById("totalrecebido").innerHTML =  valor.toFixed(2);
+  document.getElementById("totalrecebido").innerHTML = 'R$ '+ valor.toFixed(2);
 }
 
 function cinco(num){
@@ -311,9 +386,9 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 
 
  vlrpg.value =valor.toFixed(2);;
- document.getElementById("troco").innerHTML = tr;
+ document.getElementById("troco").innerHTML ='R$ '+ tr;
 
-document.getElementById("totalrecebido").innerHTML =  valor.toFixed(2);
+document.getElementById("totalrecebido").innerHTML = 'R$ '+ valor.toFixed(2);
 }
 function dez(num){
 
@@ -335,12 +410,25 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 
 
  vlrpg.value =valor.toFixed(2);;
- document.getElementById("troco").innerHTML = tr;
+ document.getElementById("troco").innerHTML ='R$ '+ tr;
 
-document.getElementById("totalrecebido").innerHTML =  valor.toFixed(2);
+document.getElementById("totalrecebido").innerHTML = 'R$ '+ valor.toFixed(2);
 
 }
 
+$("#descontoporcentagem").blur(function(){
+
+  var descontoporcentagem = Number(document.getElementById("descontoporcentagem").value);
+
+  var totalvenda = Number(document.getElementById("subtotalpagamento").value);
+
+  var tol = totalvenda.toFixed(2)
+
+  var vlrdesconto = (descontoporcentagem*totalvenda)/100;
+
+$("#descontovalor").val(vlrdesconto.toFixed(2));
+
+})
 
 function vinte(num){
 
@@ -362,8 +450,8 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 
 
  vlrpg.value =valor.toFixed(2);;
- document.getElementById("troco").innerHTML = tr;
-document.getElementById("totalrecebido").innerHTML =  valor.toFixed(2);
+ document.getElementById("troco").innerHTML ='R$ '+ tr;
+document.getElementById("totalrecebido").innerHTML = 'R$ '+ valor.toFixed(2);
 
 }
 function cinquenta(num){
@@ -387,8 +475,8 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 
 
  vlrpg.value =valor.toFixed(2);;
- document.getElementById("troco").innerHTML = tr;
-document.getElementById("totalrecebido").innerHTML =  valor.toFixed(2);
+ document.getElementById("troco").innerHTML ='R$ '+ tr;
+document.getElementById("totalrecebido").innerHTML ='R$ '+  valor.toFixed(2);
 }
 
 function cem(num){
@@ -411,9 +499,9 @@ else {
 
 
 vlrpg.value =valor.toFixed(2);;
-document.getElementById("troco").innerHTML = tr;
+document.getElementById("troco").innerHTML ='R$ '+ tr;
 
-document.getElementById("totalrecebido").innerHTML = valor.toFixed(2);
+document.getElementById("totalrecebido").innerHTML ='R$ '+ valor.toFixed(2);
 }
 
 function restante(num){
@@ -431,8 +519,8 @@ var pago = document.getElementById("vlrpgto");
   }
 
   pago.value =vlrpg.toFixed(2);;
-document.getElementById("troco").innerHTML = tr;
-  document.getElementById("totalrecebido").innerHTML = val;
+document.getElementById("troco").innerHTML = 'R$ '+tr;
+  document.getElementById("totalrecebido").innerHTML = 'R$ '+val;
 }
 
 function excluirpedido(){
@@ -492,6 +580,46 @@ $("#produto").autocomplete({
 
 
     }
+
+});
+
+$('#formdesconto').submit(function(){
+
+  var dados = $('#formdesconto').serialize();
+
+$.ajax({
+type: "POST",
+url:"<?php echo base_url();?>pedidopdv/desconto",
+data:dados,
+dataType:'json',
+success:function(data)
+{
+
+if(data.result == true){
+
+location.reload();
+
+
+// /$("#total").load("<?php echo current_url();?> #total" );
+
+
+}
+
+else{
+
+
+location.reload();
+
+
+}
+
+}
+
+});
+return false;
+
+
+
 
 });
 
@@ -591,6 +719,7 @@ var nomeproduto = $this.attr("data-nome");
                       '<input type="hidden" name="vendaitem[]" value="'+venda+'" />'+
                       '<input type="hidden" name="numeromesa[]" value="'+numeromesa+'" />'+
     '<input type="hidden" name="quantidade[]" value="'+qtdd+'" />'+
+    '<input type="hidden" name="totalitem[]" value="'+subtotal+'" />'+
                       '<input type="hidden" name="idproduto[]" value="'+idproduto+'" />';
 
                     $('#form_insert').find('fieldset').append( hiddens );
@@ -644,6 +773,7 @@ $('#item').find('tbody').append( tr );
                   '<input type="hidden" name="idpedido[]" value="'+idpedido+'" />'+
                   '<input type="hidden" name="vendaitem[]" value="'+venda+'" />'+
                   '<input type="hidden" name="numeromesa[]" value="'+numeromesa+'" />'+
+                     '<input type="hidden" name="totalitem[]" value="'+subtotal+'" />'+
 '<input type="hidden" name="quantidade[]" value="'+qtdd+'" />'+
                   '<input type="hidden" name="idproduto[]" value="'+idproduto+'" />';
 
@@ -711,13 +841,13 @@ $("#produtobusca").keypress(function(e){
 
                }
 
-
+var subtotal = (venda*quantidade).toFixed(2);
                var hiddens =  '<input type="hidden" name="nomeproduto" value="'+nomeproduto+'" />'+
                '<input type="hidden" name="quantidade" value="'+quantidade+'" />'+
 '<input type="hidden" name="codbarra" value="'+cod+'" />'+
                '<input type="hidden" name="idpedidopdv" value="'+idpdv+'" />'+
                  '<input type="hidden" name="valor" value="'+venda+'" />'+
-
+ '<input type="hidden" name="totalitem" value="'+subtotal+'" />'+
                  '<input type="hidden" name="produto_id" value="'+id+'" />';
 
 
@@ -771,7 +901,42 @@ function somenteNumeros (num) {
 		campo.value = "";
 		}
 	}
+  $("#cliente").autocomplete({
 
+      source: "<?php echo base_url(); ?>cliente/autoCompleteCliente",
+
+      minLength: 2,
+
+      select: function(event, ui) {
+
+
+
+          $("#idclientes").val(ui.item.idclientes);
+        //  $("#nome").val(ui.item.nome);
+
+
+          $("#nomecliente").val(ui.item.nomecliente);
+          $("#telfixo").val(ui.item.telfixo);
+          $("#celular").val(ui.item.celular);
+          $("#rua").val(ui.item.rua);
+          $("#numero").val(ui.item.numero);
+  var nomecliente = document.getElementById("nomecliente").value;
+  var telfixo = document.getElementById("telfixo").value;
+  var celular = document.getElementById("celular").value;
+  var rua = document.getElementById("rua").value;
+  var numero = document.getElementById("numero").value;
+
+
+  document.getElementById("listnome").innerHTML ='Cliente: '+nomecliente;
+  document.getElementById("listfixo").innerHTML ='Fone: ' +telfixo+' Celular: '+celular;
+  //document.getElementById("listcelular").innerHTML = celular;
+//  document.getElementById("listrua").innerHTML = rua.' '.numero;
+
+      }
+
+  });
+
+  $('#descontovalor').maskMoney();
 $(document).on('click', 'span', function(event) {
             var $id = $(this).attr('idAcao');
             if(($id % 1) == 0){

@@ -16,12 +16,24 @@
 						</div>
 					</div>
           <br>
-					<div class="col-md-9">
+					<div class="col-md-7">
 						<label for="descricao" class="control-label">Descrição</label>
 						<div class="form-group">
 							<input type="text" name="descricao" class="form-control" id="descricao"required />
 						</div>
 					</div>
+
+          <div class="col-md-2">
+            <label for="tipomov" class="control-label">TIPO MOV.</label>
+            <div class="form-group">
+              <select id="tipomov"name="tipomov" class="form-control">
+
+                  <option value="ENTRADA">ENTRADA</option>
+                    <option value="SAIDA">SAIDA</option>
+              </select>
+
+            </div>
+          </div>
 
 
           <div class="col-md-2">
@@ -100,6 +112,7 @@ var descricao = document.getElementById("descricao").value;
       var nomeproduto = document.getElementById("nomeproduto").value;
       var qttd = document.getElementById("quantidade").value;
       var codbarra = document.getElementById("codbarra").value;
+    var tipomov=  $("#tipomov :selected").text(); // The text content of the selected option
 
       var tr = '<tr>'+
         '<td>'+codbarra+'</td>'+
@@ -119,7 +132,7 @@ var descricao = document.getElementById("descricao").value;
       var hiddens =  '<input type="hidden" name="nomeproduto[]" value="'+nomeproduto+'" />'+
 '<input type="hidden" name="codbarra[]" value="'+codbarra+'" />'+
 '<input type="hidden" name="descricao" value="'+descricao+'" />'+
-
+'<input type="hidden" name="tipomov" value="'+tipomov+'" />'+
 '<input type="hidden" name="quantidade[]" value="'+qttd+'" />'+
         '<input type="hidden" name="idproduto[]" value="'+idproduto+'" />';
 

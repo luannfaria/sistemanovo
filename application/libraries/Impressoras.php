@@ -2,6 +2,8 @@
 // IMPORTANT - Replace the following line with your path to the escpos-php autoload script
 //require_once base_url().'autoload.php';
 
+
+ require_once('/../../vendor/zendframework/zend-barcode/src/Barcode.php');
 require __DIR__ . '/../../autoload.php';
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;

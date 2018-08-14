@@ -33,7 +33,20 @@ class Produto extends CI_Controller{
     /*
      * Adding a new produto
      */
+function generatebarcode(){
+    $this->load->library('Codigodebarras');
+    $this->load->model('Categoria_model');
+    $data['categorias'] = $this->Categoria_model->get_all_categorias();
+  $pdf=new Codigodebarras();
+$pdf->AddPage();
 
+foreach ($data['categorias'] as $cat){
+
+$pdf->EAN13(20,20,$cat['idcategoria']);
+
+}
+$pdf->Output();
+}
      function getproduto(){
 
 
@@ -165,7 +178,13 @@ $data = $this->Produto_model->buscaitemporcategoria($idcat);
         else
             show_error('The produto you are trying to edit does not exist.');
     }
+function gerarean(){
 
+  $data['_view'] = 'produto/gerarean';
+  $this->load->view('layouts/main',$data);
+
+
+}
     /*
      * Deleting produto
      */
