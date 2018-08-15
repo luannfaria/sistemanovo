@@ -78,7 +78,7 @@
                         <li>
                             <a href="">
                                 <i class="fa fa-dashboard"></i> <span>INICIO</span>
-                                <?php echo $empresa['datavencimentolicenca']; ?>
+
                             </a>
                         </li>
 
@@ -88,7 +88,7 @@
                                             <i class="fa fa-shopping-cart"></i> <span>VENDAS</span>
                                         </a>
                                         <ul class="treeview-menu">
-                            <li class="active">
+                          <!--  <li class="active">
                                                 <a href="#"><i class="fa fa-circle"></i> BALCÃO</a>
                                             </li>
                             <li>
@@ -96,7 +96,7 @@
                                             </li>
                                             <li>
                                                                 <a href="<?php echo site_url('pedidomesa/index');?>"><i class="fa fa-circle"></i> MESAS</a>
-                                                            </li>
+                                                            </li>!-->
                                                             <li>
                                                                                 <a href="<?php echo site_url('pedidopdv/index');?>"><i class="fa fa-circle"></i> PDV</a>
                                                                             </li>
@@ -112,21 +112,21 @@
       <i class="fa fa-tags"></i> <span>PRODUTOS</span>
   </a>
   <ul class="treeview-menu">
-    <li class="active">
+  <!--  <li class="active">
               <a href="<?php echo site_url('adicional/index');?>"><i class="fa fa-circle"></i> ADICIONAIS</a>
-          </li>
+          </li>!-->
 <li>
           <a href="<?php echo site_url('categoria/index');?>"><i class="fa fa-circle"></i> CATEGORIAS</a>
-      </li>
+      </li><!--
 <li>
           <a href="<?php echo site_url('pizza/index');?>"><i class="fa fa-circle"></i> PIZZAS</a>
-      </li>
+      </li>!-->
       <li>
                           <a href="<?php echo site_url('produto/index');?>"><i class="fa fa-circle"></i> PRODUTOS</a>
                       </li>
-                      <li>
+                  <!--    <li>
                                           <a href="<?php echo site_url('observaco/index');?>"><i class="fa fa-circle"></i> OBSERVAÇÕES</a>
-                                      </li>
+                                      </li>!-->
 </ul>
 
 
@@ -190,9 +190,9 @@
                             <li>
                                                 <a href="<?php echo site_url('contasareceber/index');?>"><i class="fa fa-circle"></i> </a>
                                             </li>
-                                            <li>
+                                      <!--      <li>
                                                                 <a href="<?php echo site_url('caixa/index');?>"><i class="fa fa-circle"></i> </a>
-                                                            </li>
+                                                            </li>!-->
                           </ul>
                                     </li>
 
@@ -210,13 +210,13 @@
                             <li>
                                                 <a href="<?php echo site_url('usuario/index');?>"><i class="fa fa-list-ul"></i> Usuarios</a>
                                             </li>
-                                            <li>
+                                    <!--        <li>
                                                                 <a href="<?php echo site_url('entregador/index');?>"><i class="fa fa-list-ul"></i> Entregadores</a>
 
                                                               </li>
                                                                 <li>
                                                                                     <a href="<?php echo site_url('taxaentrega/index');?>"><i class="fa fa-list-ul"></i> Taxa de entrega</a>
-                                                                                                         </li>
+                                                                                  </li>!-->
                                                                                                          <li>
                                                                                                                              <a href="#"><i class="fa fa-list-ul"></i> Impressoras</a>
                                                                                                                                                   </li>

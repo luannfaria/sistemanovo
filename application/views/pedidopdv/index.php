@@ -258,11 +258,11 @@
            <label class="label"for="cheque">  CHEQUE</label>
                </li>
 
-               <li class="lipag"  data-pgto="fiado">
+            <!--   <li class="lipag"  data-pgto="fiado">
 
                  <input name="pag" type="radio"  class="radio hidden"value="fiado" id="fiado">
             <label class="label" for="fiado">  PRAZO</label>
-          </li>
+          </li>!-->
              </ul>
 
 
@@ -326,6 +326,9 @@
 <script src="<?php echo site_url('resources/js/maskmoney.js');?>"></script>
 
 <script>
+$('#receber').on('hidden.bs.modal', function () {
+    location.reload();
+})
 
 var clock = document.getElementById('real-clock');
 

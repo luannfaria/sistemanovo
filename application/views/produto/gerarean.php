@@ -38,8 +38,8 @@
                   <table id="item" class="table table-striped">
                     <tbody>
                       <tr>
-                        <td></svg></td>
-                        <td></svg></td>
+                        <td></td>
+                        <td></td>
                         <td>Total</td>
                         <td>Ações</td>
                       </tr>
@@ -48,7 +48,7 @@
                 </div>
 
               </div>
-              <form id="form_insert" action="" method="post">
+              <form id="form_insert" action="<?php echo site_url('produto/generatebarcode'); ?>" method="post">
 
                       <fieldset></fieldset>
 
@@ -100,13 +100,15 @@ $("#quantidade").keypress(function(e) {
   var hiddens =  '<input type="hidden" name="nomeproduto[]" value="'+nomeproduto+'" />'+
     '<input type="hidden" name="venda[]" value="'+venda+'" />'+
     '<input type="hidden" name="codbarra[]" value="'+codbarra+'" />';
-
+$('#form_insert').find('fieldset').append( hiddens );
 }
-  $('#form_insert').find('fieldset').append( hiddens );
+
+
+$('#produto').focus();
 
     return false;
       }
-    $('#produto').focus();
+
 
 });
 function Enter(idinput){

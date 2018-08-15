@@ -1952,6 +1952,42 @@ a:hover, a:active, a:focus {
   padding: 10px
 }
 
+.box-body-caixa {
+padding: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+.box-body-caixa .esquerdacaixa{
+  border-radius: 5px 5px 2px #333;
+  display: block;
+  position: relative;
+  z-index: 10;
+
+}
+.box-body-caixa .direitacaixa{
+
+  background-color: #2980b9;
+  position: relative;
+  z-index: 10px;
+}
+
+.box-body-caixa .esquerdacaixa .tabelacaixa{
+
+
+
+    background: #fff;
+    height: 87vh;
+    overflow-y: scroll;
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+
+}
+
 .no-header .box-body {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px
@@ -4658,7 +4694,10 @@ table.text-center, table.text-center td, table.text-center th {
 .select2-dropdown .select2-search__field, .select2-search--inline .select2-search__field {
   border: 1px solid #d2d6de
 }
+.content .caixa{
 
+  background: #000;
+}
 .select2-dropdown .select2-search__field:focus, .select2-search--inline .select2-search__field:focus {
   outline: none
 }

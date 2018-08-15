@@ -9,6 +9,8 @@ class Produto extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Produto_model');
+
+
     }
 
     /*
@@ -33,19 +35,87 @@ class Produto extends CI_Controller{
     /*
      * Adding a new produto
      */
+
+     function testepimaco(){
+
+$data= array();
+ $count = count($this->input->post('codbarra'));
+
+ for($c=0;$c<$count;$c++){
+       $data[] = $this->input->post('codbarra')[$c];
+
+     }
+$this->load->helper('pimaco');
+
+teste($data);
+     }
 function generatebarcode(){
-    $this->load->library('Codigodebarras');
-    $this->load->model('Categoria_model');
-    $data['categorias'] = $this->Categoria_model->get_all_categorias();
-  $pdf=new Codigodebarras();
-$pdf->AddPage();
 
-foreach ($data['categorias'] as $cat){
+  require __DIR__ .'/../third_party/pdf/barcode.php';
+  $pdf= new PDF_BARCODE("P","mm","A4");
+  $pdf->AddPage();
+//$pdf->Line(63.5,25.4,0,2.2);
+$pdf->SetTopMargin(8,8);
+$pdf->SetLeftMargin(7.2);
+$pdf->SetRightMargin(7.2);
 
-$pdf->EAN13(20,20,$cat['idcategoria']);
+
+
+
+
+//$data['produto']= print_r($_POST['codbarra']);
+ //print_r($_POST['codbarra']);
+ $count = count($this->input->post('codbarra'));
+ $contador=0;
+$b=10;
+$d=10;
+$x=10;
+$y=5;
+for($c=0;$c<$count;$c++){
+      $cod = $this->input->post('codbarra')[$c];
+      $nome= $this->input->post('nomeproduto')[$c];
+ //echo $cod.'<br/>';
+
+if($contador==33){
+  $pdf->AddPage();
+  $contador=0;
+ $b=10;
+ $d=10;
+ $x=10;
+ $y=5;
 
 }
-$pdf->Output();
+ if($b>=270){
+   $d=80;
+   $b=10;
+   $x=80;
+   $y=5;
+ }
+ if($contador==22){
+   $d=150;
+   $b=10;
+   $x=150;
+   $y=5;
+ }
+
+ $pdf->SetXY($x,$y);
+ $pdf->EAN13($d,$b,$cod,10,0.4,11);
+$pdf->Write(5,$nome);
+        $y+=25;
+       $b+=25;
+$contador++;
+
+
+}
+
+
+ ob_start ();
+ $pdf->Output();
+
+//count = count($cod);
+
+//print_r($_POST['codbarra']);
+ //$this->load->view('produto/barcode-test',$cod);
 }
      function getproduto(){
 

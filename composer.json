@@ -14,9 +14,10 @@
 		"php": ">=5.2.4",
 		"mike42/escpos-php": "^2.0",
 		 "ext-mbstring": "*",
-		"mpdf/mpdf": "^7.1",
+		"mpdf/mpdf": "6.1",
 		"zendframework/zend-barcode": "^2.7",
-		"setasign/fpdf": "1.8.1"
+		"setasign/fpdf": "1.8.1",
+		"proner/phppimaco": "^1.2"
 	},
 	"suggest": {
 		"guzzlehttp/guzzle": "Allows the use of the ApiConnector to send print jobs over HTTP.",
@@ -32,7 +33,10 @@
 	},
 	"autoload": {
         "psr-4": {
-            "Mike42\\": "src/Mike42"
+            "Mike42\\": "src/Mike42",
+                "Proner\\PhpPimaco\\": "src/",
+            "Mpdf\\": "src/",
+             "Classes\\": "includes/libraries/Classes"
         }
     }
 }

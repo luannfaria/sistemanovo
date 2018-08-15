@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4107de50a98fa26e8ef063bd6a70ed43",
+    "content-hash": "005b6916d6c0f829c4f19eeefefb5e04",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,6 +36,67 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14T19:40:03+00:00"
+        },
+        {
+            "name": "endroid/qrcode",
+            "version": "1.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/qr-code.git",
+                "reference": "c9644bec2a9cc9318e98d1437de3c628dcd1ef93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/c9644bec2a9cc9318e98d1437de3c628dcd1ef93",
+                "reference": "c9644bec2a9cc9318e98d1437de3c628dcd1ef93",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.4",
+                "symfony/options-resolver": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "sensio/framework-extra-bundle": "^3.0",
+                "symfony/browser-kit": "^2.3|^3.0",
+                "symfony/framework-bundle": "^2.3|^3.0",
+                "symfony/http-kernel": "^2.3|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\QrCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl",
+                    "homepage": "http://endroid.nl/"
+                }
+            ],
+            "description": "Endroid QR Code",
+            "homepage": "https://github.com/endroid/QrCode",
+            "keywords": [
+                "bundle",
+                "code",
+                "endroid",
+                "qr",
+                "qrcode",
+                "symfony"
+            ],
+            "abandoned": "endroid/qr-code",
+            "time": "2017-04-08T09:13:59+00:00"
         },
         {
             "name": "mike42/escpos-php",
@@ -94,161 +155,172 @@
         },
         {
             "name": "mpdf/mpdf",
-            "version": "v7.1.4",
+            "version": "v6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "349a1ffae7d04f0d976f619d6f00d8569a4a74c7"
+                "reference": "27641244fbd6c42e875b2ef3625bc7aa1db8af8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/349a1ffae7d04f0d976f619d6f00d8569a4a74c7",
-                "reference": "349a1ffae7d04f0d976f619d6f00d8569a4a74c7",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/27641244fbd6c42e875b2ef3625bc7aa1db8af8f",
+                "reference": "27641244fbd6c42e875b2ef3625bc7aa1db8af8f",
                 "shasum": ""
             },
             "require": {
-                "ext-gd": "*",
                 "ext-mbstring": "*",
-                "myclabs/deep-copy": "^1.7",
-                "paragonie/random_compat": "^1.4|^2.0|9.99.99",
-                "php": "^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0",
-                "psr/log": "^1.0",
+                "php": ">=5.4.0",
                 "setasign/fpdi": "1.6.*"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "^5.0",
-                "squizlabs/php_codesniffer": "^2.7.0",
-                "tracy/tracy": "^2.4"
+                "phpunit/phpunit": "^4.7"
             },
             "suggest": {
-                "ext-bcmath": "Needed for generation of some types of barcodes",
-                "ext-xml": "Needed mainly for SVG manipulation",
                 "ext-zlib": "Needed for compression of embedded resources, such as fonts"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-development": "7.0-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "Mpdf\\": "src/"
-                }
+                "classmap": [
+                    "mpdf.php",
+                    "classes"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-only"
+                "GPL-2.0"
             ],
             "authors": [
                 {
-                    "name": "Matěj Humpál",
-                    "role": "Developer, maintainer"
-                },
-                {
                     "name": "Ian Back",
-                    "role": "Developer (retired)"
+                    "role": "Developer"
                 }
             ],
             "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
-            "homepage": "https://mpdf.github.io",
+            "homepage": "http://mpdf.github.io",
             "keywords": [
                 "pdf",
                 "php",
                 "utf-8"
             ],
-            "time": "2018-08-10T11:00:53+00:00"
+            "time": "2016-04-26T15:09:38+00:00"
         },
         {
-            "name": "myclabs/deep-copy",
-            "version": "1.7.0",
+            "name": "picqer/php-barcode-generator",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
+                "url": "https://github.com/picqer/php-barcode-generator.git",
+                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
-                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/f754cbd592f3131af144dfcc6a3090fd0f6d1793",
+                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "doctrine/collections": "^1.0",
-                "doctrine/common": "^2.6",
-                "phpunit/phpunit": "^4.1"
+                "phpunit/phpunit": "^5.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
-                },
-                "files": [
-                    "src/DeepCopy/deep_copy.php"
-                ]
+                    "Picqer\\Barcode\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "LGPLv3"
             ],
-            "description": "Create deep copies (clones) of your objects",
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "info@tecnick.com",
+                    "homepage": "http://nicolaasuni.tecnick.com"
+                },
+                {
+                    "name": "Casper Bakker",
+                    "email": "info@picqer.com"
+                }
+            ],
+            "description": "An easy to use, non-bloated, barcode generator in PHP. Creates SVG, PNG, JPG and HTML images from the most used 1D barcode standards.",
+            "homepage": "http://github.com/picqer/php-barcode-generator",
             "keywords": [
-                "clone",
-                "copy",
-                "duplicate",
-                "object",
-                "object graph"
+                "CODABAR",
+                "Code11",
+                "Code93",
+                "EAN13",
+                "KIX",
+                "KIXCODE",
+                "MSI",
+                "POSTNET",
+                "Pharma",
+                "Standard 2 of 5",
+                "barcode",
+                "barcode generator",
+                "code128",
+                "code39",
+                "ean",
+                "html",
+                "jpeg",
+                "jpg",
+                "php",
+                "png",
+                "svg",
+                "upc"
             ],
-            "time": "2017-10-19T19:58:43+00:00"
+            "time": "2017-09-28T19:23:19+00:00"
         },
         {
-            "name": "paragonie/random_compat",
-            "version": "v9.99.99",
+            "name": "proner/phppimaco",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
+                "url": "https://github.com/PronerInformatica/phppimaco.git",
+                "reference": "621dccc1f73d0341aae8657f3c6e2b069845b2a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "url": "https://api.github.com/repos/PronerInformatica/phppimaco/zipball/621dccc1f73d0341aae8657f3c6e2b069845b2a9",
+                "reference": "621dccc1f73d0341aae8657f3c6e2b069845b2a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7"
+                "endroid/qrcode": "^1.7",
+                "mpdf/mpdf": "^6.1",
+                "php": ">=5.6",
+                "picqer/php-barcode-generator": "^0.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*|5.*",
-                "vimeo/psalm": "^1"
-            },
-            "suggest": {
-                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+                "codeclimate/php-test-reporter": "^0.3.2",
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Proner\\PhpPimaco\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Paragon Initiative Enterprises",
-                    "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com"
+                    "name": "Diogo Bemfica",
+                    "email": "diogo.fragabemfica@gmail.com"
                 }
             ],
-            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "description": "Lib para geração de Etiquetas PIMACO",
             "keywords": [
-                "csprng",
-                "polyfill",
-                "pseudorandom",
-                "random"
+                "PIMACO",
+                "etiquetas",
+                "hang tags",
+                "tags"
             ],
-            "time": "2018-07-02T15:55:56+00:00"
+            "time": "2018-08-14T23:16:01+00:00"
         },
         {
             "name": "psr/container",
@@ -298,53 +370,6 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "setasign/fpdf",
@@ -433,6 +458,60 @@
                 "pdf"
             ],
             "time": "2017-05-11T14:25:49+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v3.4.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "6debc476953a45969ab39afe8dee0b825f356dc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/6debc476953a45969ab39afe8dee0b825f356dc7",
+                "reference": "6debc476953a45969ab39afe8dee0b825f356dc7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony OptionsResolver Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "time": "2018-07-26T08:45:46+00:00"
         },
         {
             "name": "zendframework/zend-barcode",

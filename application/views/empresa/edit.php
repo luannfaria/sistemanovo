@@ -8,14 +8,14 @@
 			<div class="box-body">
 				<div class="row clearfix">
 					<div class="col-md-4">
-						<label for="razaosocial" class="control-label"><span class="text-danger">*</span>Razaosocial</label>
+						<label for="razaosocial" class="control-label"><span class="text-danger">*</span>Razão social</label>
 						<div class="form-group">
 							<input type="text" name="razaosocial" value="<?php echo ($this->input->post('razaosocial') ? $this->input->post('razaosocial') : $empresa['razaosocial']); ?>" class="form-control" id="razaosocial" />
 							<span class="text-danger"><?php echo form_error('razaosocial');?></span>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<label for="nomefantasia" class="control-label"><span class="text-danger">*</span>Nomefantasia</label>
+						<label for="nomefantasia" class="control-label"><span class="text-danger">*</span>Nome fantasia</label>
 						<div class="form-group">
 							<input type="text" name="nomefantasia" value="<?php echo ($this->input->post('nomefantasia') ? $this->input->post('nomefantasia') : $empresa['nomefantasia']); ?>" class="form-control" id="nomefantasia" />
 							<span class="text-danger"><?php echo form_error('nomefantasia');?></span>
@@ -80,7 +80,7 @@
 			</div>
 			<div class="box-footer">
             	<button type="submit" class="btn btn-success">
-					<i class="fa fa-check"></i> Save
+					<i class="fa fa-check"></i> ALTERAR
 				</button>
 	        </div>
 			<?php echo form_close(); ?>

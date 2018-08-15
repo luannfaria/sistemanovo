@@ -82,7 +82,7 @@ class Produto_model extends CI_Model
     }
     function get_todos()
     {
-      $sql = "select * from produto";
+      $sql = "select * from produto INNER JOIN estoque on(produto.produto_id = estoque.id_produto)";
       $query = $this->db->query($sql);
       $array = $query->result_array();
       return $array;
@@ -95,7 +95,7 @@ class Produto_model extends CI_Model
 
       if($query->num_rows() > 0){
           foreach ($query->result_array() as $row){
-            $update = "update produto set codbarra = LPAD(".$row['produto_id'].",13,0) where produto_id=".$row['produto_id']."";
+            $update = "update produto set codbarra = LPAD(".$row['produto_id'].",12,0) where produto_id=".$row['produto_id']."";
             $this->db->query($update);
           }
         }
