@@ -22,6 +22,7 @@ class Produto_model extends CI_Model
     /*
      * Get all produtos count
      */
+    
 
      public function getprodutoean($codbarra){
 

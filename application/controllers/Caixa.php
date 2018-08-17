@@ -16,7 +16,15 @@ class Caixa extends CI_Controller{
      */
     function index()
     {
-        $data['caixa'] = $this->Caixa_model->get_all_caixa();
+
+      date_default_timezone_set('America/Sao_Paulo');
+      $hoje = date('d/m/Y');
+
+
+      $data['totaldia']= $this->Caixa_model->totaldia($hoje);
+        $data['caixa'] = $this->Caixa_model->get_all_caixa($hoje);
+        $data['entrada'] = $this->Caixa_model->entrada($hoje);
+        $data['saida'] = $this->Caixa_model->saida($hoje);
 
         $data['_view'] = 'caixa/index';
         $this->load->view('layouts/main',$data);
@@ -51,6 +59,20 @@ class Caixa extends CI_Controller{
     /*
      * Editing a caixa
      */
+
+     function movimentacao(){
+
+  $params = array(
+       'data' => $this->input->post('dataid'),
+       'valor' => $this->input->post('valor'),
+       'descricao' => $this->input->post('descricao'),
+       'formapagto' => $this->input->post('formarecebimento'),
+       'tipomovimentacao' => $this->input->post('tipomovimentacao')
+         );
+    $caixa_id = $this->Caixa_model->add_caixa($params);
+
+    redirect('caixa/index');
+     }
     function edit($idcaixa)
     {
         // check if the caixa exists before trying to edit it

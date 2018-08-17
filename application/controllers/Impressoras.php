@@ -4,33 +4,41 @@
  * www.crudigniter.com
  */
 
-class Impressoras extends CI_Controller{
-    function __construct()
-    {
+ use Mike42\Escpos\Printer;
+ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 
-    }
+ //use Mike42\Escpos\Printer;
+ //use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+class Impressoras extends CI_Controller{
+
+  public function __construct() {
+   parent::__construct();
+  // $this->load->library('escpos');
+
+
+}
 
     function impressaoteste(){
 
-        require __DIR__ .'/../third_party/Mike42/escpos-php/autoload.php';
-        use Mike42\Escpos\Printer;
-        use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 
-        
-       try {
-           // Enter the share name for your USB printer here
-           $connector = null;
-           //$connector = new WindowsPrintConnector("Receipt Printer");
+      try {
+      		// Enter the device file for your USB printer here
+      	  $connector = new Escpos\PrintConnectors\WindowsPrintConnector("itautec");
 
-           /* Print a "Hello world" receipt" */
-           $printer = new Printer($connector);
-           $printer -> text("Hello World!\n");
-           $printer -> cut();
+      		/* Print a "Hello world" receipt" */
+      		$printer = new Escpos\Printer($connector);
+      		$printer -> text("Hello World!\n");
+      		$printer -> cut();
 
-           /* Close printer */
-           $printer -> close();
-       } catch (Exception $e) {
-           echo "Couldn't print to this printer: " . $e -> getMessage() . "\n";
-       }
+      		/* Close printer */
+      		$printer -> close();
+      } catch (Exception $e) {
+      	echo "Couldn't print to this printer: " . $e -> getMessage() . "\n";
+      }
+
+
+
+
+
     }
   }

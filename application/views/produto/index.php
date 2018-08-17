@@ -34,7 +34,7 @@
      <!-- /.modal -->
 
             </div>
-            <div class="box-body-caixa">
+            <div class="box-body">
                 <table class="table table-striped">
                     <tr>
 						<th>Codigo</th>

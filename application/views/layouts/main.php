@@ -7,7 +7,7 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="https://bootswatch.com/3/readable/bootstrap.min.css">
+        <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css');?>">
 
@@ -76,7 +76,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="">
+                            <a href="<?php echo site_url('Dashboard/painel')?>">
                                 <i class="fa fa-dashboard"></i> <span>INICIO</span>
 
                             </a>

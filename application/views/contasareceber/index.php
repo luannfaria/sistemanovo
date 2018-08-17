@@ -119,10 +119,10 @@
 
                                                         <div class="form-group">
                                                         <select name="formarecebimento" class="form-control" required>
-                                                          <option value="">Selecione    </option>
+                                                          <option value="">Selecione</option>
                                                             <option value="DINHEIRO"> DINHEIRO</option>
-                                                            <option value="CARTAO DE CREDITO"> CARTÃO DE CRÉDITO</option>
-                                                            <option value="CARTAO DE DEBITO"> CARTÃO DE DÉBITO</option>
+                                                            <option value="CREDITO"> CARTÃO DE CRÉDITO</option>
+                                                            <option value="DEBITO"> CARTÃO DE DÉBITO</option>
                                                             <option value="CHEQUE"> CHEQUE</option>
                                                         </select>
                                                         </div>

@@ -216,7 +216,7 @@ body {
 }
 
 .content {
-  min-height: 250px;
+  min-height: 180px;
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -1953,10 +1953,10 @@ a:hover, a:active, a:focus {
 }
 
 .box-body-caixa {
-padding: 10px;
+padding: 1px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  
+
   width: 100%;
   font-family: "Roboto", sans-serif;
 }
@@ -1964,14 +1964,91 @@ padding: 10px;
   border-radius: 5px 5px 2px #333;
   display: block;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 
 }
 .box-body-caixa .direitacaixa{
 
-  background-color: #2980b9;
+  background-color: #87CEFA;
   position: relative;
   z-index: 10px;
+}
+.box-body-caixa .direitacaixa .gridcaixa{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 40px;
+  padding: 18px;
+
+
+}
+.box-body-caixa .direitacaixa .totalcaixa{
+  border-width: 2px 1px 2px;
+
+  border-style: solid;
+
+background: #cacaca;
+  border-color:#fff;
+margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 250px;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+.box-body-caixa .direitacaixa .entradasaida{
+  border-style: solid;
+  border-width: 0px 1px 2px;
+
+background: #cacaca;
+  border-color:#fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100px;
+  text-align: center;
+  background: #cacaca;
+}
+
+.box-body-caixa .direitacaixa .entradasaida span{
+margin-top: 10px;
+font-size: 20px;
+
+border-width: 0px 0px 1px;
+
+border-style: solid;
+
+border-color:#fff;
+
+
+}
+.box-body-caixa .direitacaixa .saldototal{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 70px;
+    text-align: center;
+    background: #cacaca;
+    border-width: 0px 0px 2px;
+
+    border-style: solid;
+
+    border-color:#fff;
+}
+.box-body-caixa .direitacaixa .saldototal span{
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+
+
+}
+.box-body-caixa .esquerdacaixa .topocaixa{
+    text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+      height: 10vh;
+      background: #87CEFA;
+
 }
 
 .box-body-caixa .esquerdacaixa .tabelacaixa{
@@ -4694,10 +4771,7 @@ table.text-center, table.text-center td, table.text-center th {
 .select2-dropdown .select2-search__field, .select2-search--inline .select2-search__field {
   border: 1px solid #d2d6de
 }
-.content .caixa{
 
-  background: #000;
-}
 .select2-dropdown .select2-search__field:focus, .select2-search--inline .select2-search__field:focus {
   outline: none
 }

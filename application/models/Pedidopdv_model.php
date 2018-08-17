@@ -61,7 +61,11 @@ class Pedidopdv_model extends CI_Model
         $this->db->insert('pedidopdv',$params);
         return $this->db->insert_id();
     }
-
+    function get_all_pedido_count()
+    {
+        $this->db->from('pedidopdv');
+        return $this->db->count_all_results();
+    }
     /*
      * function to update pedidopdv
      */

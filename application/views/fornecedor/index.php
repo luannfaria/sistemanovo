@@ -34,10 +34,10 @@
 						<td><?php echo $f['celular']; ?></td>
 
     						<td><?php echo $f['cidade']; ?></td>
-				
+
 						<td>
-                            <a href="<?php echo site_url('fornecedor/edit/'.$f['idfornecedor']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>
-                            <a href="<?php echo site_url('fornecedor/remove/'.$f['idfornecedor']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                            <a href="<?php echo site_url('fornecedor/edit/'.$f['idfornecedor']); ?>" class="btn btn-info"><span class="fa fa-pencil"></span> Editar</a>
+                            <a href="<?php echo site_url('fornecedor/remove/'.$f['idfornecedor']); ?>" class="btn btn-danger"><span class="fa fa-trash"></span> Apagar</a>
                         </td>
                     </tr>
                     <?php } ?>

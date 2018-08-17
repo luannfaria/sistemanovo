@@ -19,7 +19,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Proner\\PhpPimaco\\' => array($vendorDir . '/proner/phppimaco/src'),
     'Picqer\\Barcode\\' => array($vendorDir . '/picqer/php-barcode-generator/src'),
-    'Mike42\\' => array($vendorDir . '/mike42/escpos-php/src/Mike42'),
+    'Mike42\\' => array($baseDir . '/src/Mike42', $vendorDir . '/mike42/escpos-php/src/Mike42'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
     'GuzzleHttp\\Stream\\' => array($vendorDir . '/guzzlehttp/streams/src'),
     'GuzzleHttp\\Ring\\' => array($vendorDir . '/guzzlehttp/ringphp/src'),

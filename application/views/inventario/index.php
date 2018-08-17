@@ -28,7 +28,7 @@
 
 						<td><?php echo $i['data']; ?></td>
 						<td><?php echo $i['descricao']; ?></td>
-            	<td><?php echo $i['tipomov']; ?></td>
+            	<td><span class="label label-success"><?php echo $i['tipomov']; ?></span></td>
 						<td>
                     <!--        <a href="<?php echo site_url('inventario/edit/'.$i['idinventario']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a>!-->
 

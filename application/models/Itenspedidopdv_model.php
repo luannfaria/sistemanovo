@@ -19,12 +19,28 @@ class Itenspedidopdv_model extends CI_Model
         return $this->db->get_where('itenspedidopdv',array('iditenspedidodelivery'=>$iditenspedidodelivery))->row_array();
     }
 
+    function maisvendidos(){
+
+      $sql="select nomeproduto, sum(quantidade) quantidade from itenspedidopdv group by produto_id ORDER BY quantidade DESC limit 10";
+      return $this->db->query($sql)->result_array();
+  }
+
+
     function getitens($id){
       $this->db->select('*');
      $this->db->from('itenspedidopdv');
      $this->db->where('idpedidopdv', $id);
 
       return $this->db->get()->result_array();
+    }
+
+    function getitensestoque($id){
+      $this->db->select('*');
+     $this->db->from('itenspedidopdv');
+     $this->db->where('idpedidopdv', $id);
+
+      return $this->db->get()->result_array();
+
     }
     /*
      * Get all itenspedidopdv count
@@ -110,6 +126,12 @@ class Itenspedidopdv_model extends CI_Model
     /*
      * function to delete itempedidopdv
      */
+
+     function delete_pedido($idpedidopdv)
+     {
+         return $this->db->delete('itenspedidopdv',array('idpedidopdv'=>$idpedidopdv));
+     }
+
     function delete_itempedidopdv($iditenspedidodelivery)
     {
         return $this->db->delete('itenspedidopdv',array('iditenspedidodelivery'=>$iditenspedidodelivery));

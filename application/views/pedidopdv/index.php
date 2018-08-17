@@ -97,7 +97,8 @@
         <li>
           <i class="fas fa-print fa-2x fa-fw" data-fa-transform="up-2"></i> Imprimir
         </li>
-        <li  onclick="excluirpedido();" id="excluirpedido"  data-idpedido="">
+        <li  href="<?php echo site_url('pedidopdv/remove/'.$pdv->idpedidopdv); ?>" id="excluirpedido" data-confirm="Tem certeza que deseja excluir essa mesa?"  >
+
           <i class="fas fa-times fa-2x fa-fw"  ></i> Cancelar venda
         </li>
 
@@ -418,7 +419,37 @@ var valorteste = Number(document.getElementById("vlrpgto").value);
 document.getElementById("totalrecebido").innerHTML = 'R$ '+ valor.toFixed(2);
 
 }
+$('#excluirpedido').click(function(){
 
+
+
+        var verificapgto = document.getElementById("valorpago").value;
+if(verificapgto > 1){
+
+  var ok = "VENDA NÃO PODE SER CANCELA. EXISTE PAGAMENTO JÁ REALIZADO PARA ESSA VENDA";
+  alert(ok);
+
+}
+else{
+  var href = $(this).attr('href');
+  if(!$('#dataConfirmModal').length){
+    $('body').append('<div id="dataConfirmModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" tabindex="-1"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button><h2 id="dataConfirmLabel">Pedido</h2></div><h2><div class="modal-body"></div></h2><div class="modal-footer"><a class="btn btn-success btn-lg col-lg-4" id="dataConfirmOK">SIM</a> <button  class="btn btn-danger btn-lg col-lg-4" data-dismiss="modal" aria-hidden="true">NÃO</button></div></div></div></div>');
+  }
+  $('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
+  $('#dataConfirmOK').attr('href',href);
+  $('#dataConfirmModal').modal({show:true});
+  return false;
+}
+
+
+
+
+
+
+
+
+
+});
 $("#descontoporcentagem").blur(function(){
 
   var descontoporcentagem = Number(document.getElementById("descontoporcentagem").value);
@@ -526,7 +557,7 @@ document.getElementById("troco").innerHTML = 'R$ '+tr;
   document.getElementById("totalrecebido").innerHTML = 'R$ '+val;
 }
 
-function excluirpedido(){
+function ok(){
 
 
   var idpedidopdv = document.getElementById("idpedido").value;
@@ -970,5 +1001,29 @@ alert('Ocorreu um erro ao tentar excluir serviço.');
 
 
 </script>
+  <a href="#notification" id="call-modal" role="button" class="btn" data-toggle="modal" style="display: none ">notification</a>
 
+
+
+
+<div class="modal" id="notification" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4>Log Out <i class="fa fa-lock"></i></h4>
+      </div>
+      <div class="modal-body">
+        <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>
+        <div class="actionsBtns">
+            <form action="<?php echo site_url('pedidopdv/remove/'.$pdv->idpedidopdv); ?>"  method="post">
+
+                <input type="submit" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout" />
+	                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

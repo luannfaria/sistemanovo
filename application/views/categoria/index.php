@@ -4,6 +4,7 @@
             <div class="box-header">
                 <h3 class="box-title">CATEGORIAS</h3>
             	<div class="box-tools">
+                    <a href="<?php echo site_url('impressoras/impressaoteste'); ?>" class="btn btn-success">TESTE THERMAL</a>
                     <a href="<?php echo site_url('categoria/add'); ?>" class="btn btn-success">NOVA CATEGORIA</a>
                 </div>
             </div>
@@ -16,7 +17,7 @@
 						<th>Ações</th>
                     </tr>
                     <?php foreach($categorias as $c){ ?>
-                    <tr>
+                    <tr class="table-dark">
 						<td><?php echo $c['idcategoria']; ?></td>
 						<td><?php echo $c['nomecategoria']; ?></td>
 

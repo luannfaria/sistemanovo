@@ -10,6 +10,7 @@ class Pedidopdv extends CI_Controller{
         parent::__construct();
         $this->load->model('Pedidopdv_model');
         $this->load->model('Itenspedidopdv_model');
+          $this->load->model('Entradaproduto_model');
     }
 
     /*
@@ -132,13 +133,19 @@ $null= $this->Pedidopdv_model->desconto($pedidopdvid,$desconto);
         $pedidopdv = $this->Pedidopdv_model->get_pedidopdv($idpedidopdv);
 
         // check if the pedidopdv exists before trying to delete it
-        if(isset($pedidopdv['idpedidopdv']))
-        {
+
+        $estoque = $this->Itenspedidopdv_model->getitensestoque($idpedidopdv);
+
+           foreach ($estoque as $row){
+        $params = array(
+          'id_produto'=> $row['produto_id'],
+          'qtde'=> $row['quantidade']
+        );
+      }
+      $this->Entradaproduto_model->entrada($params);
+                $this->Itenspedidopdv_model->delete_pedido($idpedidopdv);
             $this->Pedidopdv_model->delete_pedidopdv($idpedidopdv);
             redirect('pedidopdv/index');
-        }
-        else
-            show_error('The pedidopdv you are trying to delete does not exist.');
-    }
+}
 
 }

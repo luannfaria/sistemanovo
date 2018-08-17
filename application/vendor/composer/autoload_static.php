@@ -124,7 +124,8 @@ class ComposerStaticInit552f5d8d92fe56c24f65817e09a8dd5e
         ),
         'Mike42\\' => 
         array (
-            0 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
+            0 => __DIR__ . '/../..' . '/src/Mike42',
+            1 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
         ),
         'Interop\\Container\\' => 
         array (
@@ -153,13 +154,6 @@ class ComposerStaticInit552f5d8d92fe56c24f65817e09a8dd5e
     );
 
     public static $prefixesPsr0 = array (
-        'o' => 
-        array (
-            'org\\bovigo\\vfs' => 
-            array (
-                0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
-            ),
-        ),
         'P' => 
         array (
             'Prophecy\\' => 

@@ -8,13 +8,13 @@
           	<div class="box-body">
           		<div class="row clearfix">
 
-                <form method="post">
+                <form id="pesquisa"method="post" action="">
 
                 <div class="col-md-5">
                   	<div class="form-group">
                   <label for="idservico" class="control-label"> Produtos</label>
 
-                  <input type="text" class="form-control" name="produto" id="produto" onkeyup="Enter('quantidade');" placeholder="Pesquisar" required/>
+                  <input type="text" class="form-control" name="produto" id="produto"  placeholder="Pesquisar" >
 
                   <input type="hidden" name="idproduto" id="idproduto" value=""/>
                     <input type="hidden" name="venda" id="venda" value=""/>
@@ -26,9 +26,10 @@
                 </div>
 
                 <div class="col-md-2">
+                  	<div class="form-group">
       						<label for="quantidade" class="control-label">QTDD</label>
-      						<div class="form-group">
-      							<input type="text" name="quantidade"  class="form-control" id="quantidade" />
+
+      							<input type="text" name="quantidade"  class="form-control" id="quantidade" >
       						</div>
       					</div>
                   </form>
@@ -70,7 +71,7 @@
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.3.20/JsBarcode.all.min.js"></script>
 <script>
 //JsBarcode('#barcode', "1234567890128", {format: "ean13"});
-$("#quantidade").keypress(function(e) {
+$('#quantidade').keypress(function(e) {
 
   if(e.wich == 13 || e.keyCode == 13){
 
@@ -104,10 +105,14 @@ $('#form_insert').find('fieldset').append( hiddens );
 }
 
 
+
+
+
+$('#pesquisa').trigger("reset");
 $('#produto').focus();
 
-    return false;
       }
+
 
 
 });
