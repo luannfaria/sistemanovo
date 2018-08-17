@@ -18,6 +18,27 @@ function subtotalpdv($idpedidopdv){
     return $totalitens;
 
 }
+function retornaestoqueitem($iditem){
+
+  $CI = get_instance();
+
+    // You may need to load the model if it hasn't been pre-loaded
+    $CI->load->model('Produto_model');
+    //$CI->load->model('Empresa_model');
+    // Call a function of the model
+    $estoque = $CI->Produto_model->retornaestoque($iditem);
+  //  $taxa = $CI->Empresa_model->get_taxa();
+  //  $valortaxa = ($totalitens*$taxa)/100;
+  //  $subtotal = $totalitens+$valortaxa;
+
+  if($estoque!=null){
+    return $estoque;
+  }
+  else{
+    $estoque=0;
+    return $estoque;
+  }
+}
 
 function valordesconto($idpedidopdv){
 

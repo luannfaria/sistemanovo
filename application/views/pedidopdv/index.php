@@ -153,6 +153,28 @@
           </span>
           <span></span>
     </div>
+    <div  class="pgtorecebido">
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td style="align-tex">Valor</td>
+  <td style="align-tex">Tipo</td>
+    <td style="align-tex">Excluir</td>
+          </tr>
+
+          <?php foreach ($formpago as $pg){?>
+            <tr>
+              <td style="align-tex"><?php echo $pg['valor']?></td>
+                <td style="align-tex"><?php echo $pg['formapgto']?></td>
+                    <td style="align-tex"><?php echo $pg['idpagamentopedidomesa']?></td>
+
+            </tr>
+
+          <?php }?>
+        </tbody>
+      </table>
+  </div>
     <div id="total"class="totalizador">
 
       <?php

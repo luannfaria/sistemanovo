@@ -456,7 +456,13 @@ background: #2980b9;
   display: grid;
 
   grid-template-row: 1fr 1fr;
-height: 61vh;
+height: 38vh;
+background: #fff;
+}
+
+.register .right .pgtorecebido {
+display: flex;
+height: 23vh;
 background: #fff;
 }
 

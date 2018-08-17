@@ -86,7 +86,8 @@ class Pagamentopedidopdv extends CI_Controller{
        'valor'=> number_format((float)$vlr,2,'.',''),
        'descricao'=>$this->input->post('descricao'),
          'tipomovimentacao' => $this->input->post('tipomovimentacao'),
-           'formapagto' => $this->input->post('formapgtoselecionada')
+           'formapagto' => $this->input->post('formapgtoselecionada'),
+           'entrada_id'=>$pagamentopedidopdv_id
 
  );
 
@@ -116,7 +117,8 @@ class Pagamentopedidopdv extends CI_Controller{
                  'valor'=> $this->input->post('vlrpgto'),
                  'descricao'=>$this->input->post('descricao'),
                    'tipomovimentacao' => $this->input->post('tipomovimentacao'),
-                     'formapagto' => $this->input->post('formapgtoselecionada')
+                     'formapagto' => $this->input->post('formapgtoselecionada'),
+                     'entrada_id'=>$pagamentopedidopdv_id
 
            );
 

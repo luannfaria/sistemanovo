@@ -54,7 +54,7 @@ $null= $this->Pedidopdv_model->desconto($pedidopdvid,$desconto);
     $data['itenspdv']= $this->Itenspedidopdv_model->getitens($pedido);
   //  $data['totalitens'] = $this->Pdv_model->totalpedido($pedido);
   //  $data['pagamento'] = $this->Pdv_model->getpagamento($pedido);
-
+$data['formpago']=$this->Pedidopdv_model->getpagamento($pedido);
   //    $this->load->view('include/header');
       $this->load->view('pedidopdv/index',$data);
   //    $this->load->view('include/footer');

@@ -5,7 +5,7 @@
                 <h3 class="box-title">PRODUTOS</h3>
             	<div class="box-tools">
 
-                  <a href="<?php echo site_url('produto/gerarean'); ?>" class="btn btn-success">IMPRIMIR COD DE BARRAS</a>
+                  <a href="<?php echo site_url('produto/geradordecodigo'); ?>" class="btn btn-success">GERAR COD.BARRAS</a>
                     <a href="<?php echo site_url('produto/add'); ?>" class="btn btn-success">NOVO PRODUTO</a>
                 </div>
 
@@ -52,7 +52,10 @@
             <td><?php echo $p['codbarra']; ?></td>
             	<td><?php echo $p['nomeproduto']; ?></td>
               	<td><?php echo $p['vendaproduto']; ?></td>
-						<td><?php echo $p['estoque']; ?> <?php echo $p['unidade']; ?></td>
+                <?php $this->load->helpers('funcoes');
+              $estoque=  retornaestoqueitem($p['produto_id']);
+                ?>
+						<td><?php echo $estoque ?> <?php echo $p['unidade']; ?></td>
 						<td><?php echo $p['ativo']; ?></td>
 
 						<td>
@@ -71,11 +74,7 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/jsbarcode/3.3.20/JsBarcode.all.min.js"></script>
-
-
 <script>
 
-JsBarcode("#ean-13", "1234567890128", {format: "ean13"});
 
 </script>

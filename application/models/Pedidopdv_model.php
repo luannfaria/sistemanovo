@@ -14,6 +14,8 @@ class Pedidopdv_model extends CI_Model
     /*
      * Get pedidopdv by idpedidopdv
      */
+
+
     function get_pedidopdv($idpedidopdv)
     {
         return $this->db->get_where('pedidopdv',array('idpedidopdv'=>$idpedidopdv))->row_array();
@@ -47,6 +49,18 @@ class Pedidopdv_model extends CI_Model
     /*
      * Get all pedidopdv
      */
+
+     function getpagamento($idpedidopdv){
+       $this->db->select('*');
+      $this->db->from('pagamentopedidopdv');
+      $this->db->where('idpedidopdv', $idpedidopdv);
+        $query = $this->db->get();
+    
+
+    $array = $query->result_array();
+    return $array;
+
+     }
     function get_all_pedidopdv()
     {
         $this->db->order_by('idpedidopdv', 'desc');

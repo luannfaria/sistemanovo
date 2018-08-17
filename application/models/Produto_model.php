@@ -22,8 +22,41 @@ class Produto_model extends CI_Model
     /*
      * Get all produtos count
      */
-    
+    public function verificacadastro($id){
 
+      $this->db->select('*');
+     $this->db->from('produto');
+     $this->db->where('codbarra', $id);
+
+     $query = $this->db->get();
+
+     if ($query->num_rows() >0){
+
+
+    return true;
+  }  else{
+      return false;
+    }
+
+
+
+
+      }
+public function retornaestoque($idproduto){
+  $sql="select * from estoque where id_produto='$idproduto'";
+
+  $query = $this->db->query($sql);
+  if ($query->num_rows() >0){
+$row = $query->row();
+$estoque=$row->qtde;
+ return $estoque;
+}  else{
+  $estoque=0;
+   return $estoque;
+ }
+
+
+}
      public function getprodutoean($codbarra){
 
        $sql = "select * from produto where codbarra='$codbarra'";
@@ -90,12 +123,14 @@ class Produto_model extends CI_Model
     }
 
     function gerarcodbarra(){
-      $sql = "select * from produto where codbarra is null";
+      $sql = "select * from produto where codbarra is null or codbarra=''";
       $query = $this->db->query($sql);
       $array = $query->result_array();
 
       if($query->num_rows() > 0){
           foreach ($query->result_array() as $row){
+
+          //  $update ="update produto set codbarra = REPLICATE('0',12 -LEN(".$row['produto_id']."))+".$row['produto_id']."";
             $update = "update produto set codbarra = LPAD(".$row['produto_id'].",12,0) where produto_id=".$row['produto_id']."";
             $this->db->query($update);
           }

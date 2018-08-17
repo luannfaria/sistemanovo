@@ -49,6 +49,12 @@ $this->load->helper('pimaco');
 
 teste($data);
      }
+
+     function geradordecodigo(){
+        $this->Produto_model->gerarcodbarra();
+        redirect('produto/index');
+
+     }
 function generatebarcode(){
 
   require __DIR__ .'/../third_party/pdf/barcode.php';
@@ -129,6 +135,8 @@ $contador++;
    				echo json_encode($data);
 
    	}
+
+
 
     function buscaitemporcategoria(){
 
@@ -254,6 +262,15 @@ function gerarean(){
   $this->load->view('layouts/main',$data);
 
 
+}
+
+function verificacadastro(){
+    $codbarra = $this->input->post('codbarra');
+  if($this->Produto_model->verificacadastro($codbarra)==TRUE){
+    echo json_encode(array('result'=> true));
+
+  }
+  echo json_encode(array('result'=> false));
 }
     /*
      * Deleting produto

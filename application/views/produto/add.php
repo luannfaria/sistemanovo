@@ -19,7 +19,7 @@
       					<div class="col-md-2 ">
       						<label for="codbarra" class="control-label">CODIGO DE BARRAS</label>
       						<div class="form-group">
-      							<input type="text" name="codbarra" value="<?php echo $this->input->post('codbarra'); ?>" class="form-control" id="codbarra" />
+      							<input type="text" name="codbarra"  class="form-control" onBlur="myFunctionnovo()" id="codbarra" />
       							<span class="text-danger"><?php echo form_error('codbarra');?></span>
       						</div>
       					</div>
@@ -27,7 +27,7 @@
                 <div class="col-md-3">
       						<label for="idcategoria" class="control-label">CATEGORIA</label>
       						<div class="form-group">
-      							<select name="idcategoria" class="form-control">
+      							<select name="idcategoria" class="form-control" required>
       								<option value="">SELECIONE</option>
       								<?php
       								foreach($all_categorias as $categoria)
@@ -172,10 +172,52 @@
       	</div>
     </div>
 </div>
+
+<script  src="<?php echo site_url('resources/js/index.js')?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.js');?>"></script>
+
+<script src="<?php echo site_url('resources/js/bootstrap.min.js');?>"></script>
+
 <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
 <script src="<?php echo site_url('resources/js/maskmoney.js');?>"></script>
 
 <script>
+
+
+function myFunctionnovo(){
+     var codbarra = document.getElementById("codbarra").value;
+
+
+    if(codbarra.length>1){
+
+
+
+
+                     $.ajax({
+ type: "POST",
+ url:"<?php echo base_url();?>produto/getproduto",
+ data:"codbarra="+codbarra,
+ dataType:'json',
+ success:function(data)
+ {
+var len = data.length;
+if(len>0){
+         alert('PRODUTO JA CADASTRADO');
+         $('#codbarra').val('');
+          $('#codbarra').focus();
+ }
+ else{
+
+     $('#categoria').focus();
+ }
+}
+ });
+
+return false;
+    }
+
+}
+
 $("#custoproduto").maskMoney();
 $('#vendaproduto').maskMoney();
 
